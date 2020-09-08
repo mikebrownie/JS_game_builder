@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Brick Breaker</title>
+    <!-- Bootstrap core CSS & JS -->
+	<link rel="stylesheet" type="text/css" href="../resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/prism.css">
+
+	<script src="../resources/js/jquery-3.3.1.js"></script>
+	<script src="../resources/js/popper.js" ></script>
+	<script src="../resources/js/bootstrap.js"></script>
+	<script src="../resources/js/clipboard.js"></script>
+	<script src="../resources/js/prism.js"></script>
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="../resources/css/labLayout.css">
+	<script src="../resources/js/labScripts.js"></script>
+	</head>
+    <body onload="loadPage()">
+		<main role="main" class="container">
+			<div class="container-fluid">
+			  <div class="row">
+				<div class="col-10">
+					<h1 class="display-4">Brick Breaker</h1>
+					<p class="lead">Today, we will set up our coding enviroment and embed code for Brick Breaker on codepen.io.
+            Lastly, we will begin to explore how it works.<b><a href="https://mikebrownie.github.io/games/brick-breaker/">Try it here.</b></a>
+          <br>
+					<b>After each section, check your work with a sensei!</b></p>
+				</div>
+				<div class="col-2">
+					<table class="table">
+						<tr>
+							<th class="h5" style="text-align:center">Est. Time  &#x023F1;</th>
+						</tr>
+						<tr>
+							<td class="h5" style="text-align:center"><span id="eta">60</span> minutes</td>
+						</tr>
+					</table>
+				</div>
+			  </div>
+				<div class="row">
+
+
+				</div>
+			</div>
+
+			<div class="card card-body" id="step1">
+				<div class="stepLine">
+					<p class="alignleft h5">1. CodePen Set Up</p>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(1)" >Mark Complete</button>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Expand</button>
+					<p class="alignright h5">(<span class="time" id="time1">10</span> Minutes)</p>
+				</div>
+				<div class="collapse" id="multiCollapseExample1">
+					<dl>
+						<dt>1. Navigate to <a target="_blank" href="https://codepen.io/">CodePen.io</a></dt>
+						<dd>If you do not already have an account, create one at <a target="_blank" href="https://codepen.io/">CodePen.io</a>
+						<dt>2. Create account</dt>
+						<dd>
+							<div class="row">
+								<div class="col-6">
+									<li>Click the "Sign Up" in the upper right corner on your CodePen page.</li>
+                  <li>Now click "sign up with email" at the bottom of the page</li>
+                  <li>Sign up with your email. If you don't have one, ask for help from a sensei</li>
+                  <li><b>Write down all your login information</b></li>
+								</div>
+                <div class="col-4">
+                  <img src="img/sign_up.png">
+                </div>
+            </dd>
+            <dt>3. Confirm email</dt>
+            <dd>
+              <li>Log into your email, and look for confirmation email from codepen.io<br>
+              <i>Don't forget to check spam!</i></li>
+						</dd>
+            <dt>4. Tutorial</dt>
+              <dd>
+                Before beginning, read about the HTML, CSS, and JS below.
+                <h4>HTML, CSS, and JavaScript as the human body</h4>
+                <b>The Skeleton</b>
+                <li>HTML controls the basic structure of the page</li>
+                <b>The Skin</b>
+                <li>CSS (Cascading Style Sheets) controls the syle and presentaion</li>
+                <b>The Motion</b>
+                <li>JavaScript adds motion and brings life to the page</li>
+              </dd>
+
+					</dl>
+				</div>
+			</div>
+
+			<div class="card card-body" id="step2">
+				<div class="stepLine">
+					<p class="alignleft h5">2. Embedding the Brick Breaker Code</p>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(2)" >Mark Complete</button>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Expand</button>
+					<p class="alignright h5">(<span class="time" id="time2">15</span> Minutes)</p>
+				</div>
+				<div class="collapse" id="multiCollapseExample2">
+        </br><div class="row">
+            <h2 style ="text-align: center;">Press (ctrl+s) after EVERY STEP to save.</h2>
+          </div></br>
+          <dl>
+						<dt>1. In the upper left corner, next to "Untitled", click on the pencil to change the title to "Brick Breaker"</dt></br>
+						<dt>2. <u>The Skeleton:</u> Add the HTML code below to the HTML section to create a canvas </dt>
+            <dd><i>A canvas is used in to draw graphics on a web page.</i></dd>
+						<dd>
+							<pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code  class="language-html">&lt;canvas id="game" width="800" height="800"&gt;&lt;/canvas&gt;</code></pre>
+						</dd>
+						<dt>3. <u>The Skin:</u> Add this code to the CSS section to color the background light gray</dt>
+						<dd>
+							<pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code  class="language-css">canvas { background: #eee; }</code></pre>
+						</dd>
+            <dt>4. Now, you get to choose the color of the background for your game!</dt>
+              <dd>
+                <div class="row">
+                  <div class="col-6">
+                    <ul>
+                      <li><a target="_blank" href="https://www.w3schools.com/colors/colors_picker.asp">Click here</a> to visit our color picker, and pick your favorite.</li>
+                      <li>One you find it, copy (ctrl+c) the <b>hex code</b>.</li>
+                      <li>Return to the CodePen page, and replace "(#eee)" with your new hex color value</br>
+                      <i>Tip: You can highlight "#eee" with the cursor and press (ctrl+v) to quickly do this</i></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                  </br>
+                    <h4>Example Hex Code:</h4>
+                    <figure>
+                      <img src="img/hex.PNG">
+                      <figcaption><b>Hex code is used to represent colors in a way the computer understand</b></figcaption>
+                    </figure>
+                  </div>
+                <div>
+                <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code  class="language-css">canvas { background: NEW_COLOR_HERE; }</code></pre>
+              </dd>
+              <dt>5. Press (ctrl+s) to save and see your new background!</dt></br>
+                <!-- <figure>
+                  <img src="img/new_canvas.PNG">
+                  <figcaption><b>Make sure you see your color after saving!</b></figcaption>
+                </figure>
+              </dd> -->
+
+						<dt>6. <u>The Motion:</u> Now, add ALL of this JavaScript code to the Javascript section </dt>
+						<dd>
+						 <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">
+
+  ////VARIABLES DECLARATIONS////
+  var score = 0;
+  var lives = 3;
+  var started = false;
+
+  var canvas = document.getElementById("game");
+  var ctx = canvas.getContext("2d");
+
+  //3.1 paddle variable declarations
+
+
+  //4.1 ball variable declarations
+
+
+  //5.1 Brick variable declarations
+
+
+  //5.2 Brick Creation
+
+
+  ////END VARIABLE DECALARTIONS////
+
+
+
+  ////EVENT LISTENERS////
+
+  //3.4.1 controller object declaration
+
+
+  //3.4.2 Adding keydown and key up listeners
+
+
+  //3.4.3 keyUp/DownHandler() definitions
+
+
+  ////END EVENT LISTENERS////
+
+
+
+  ////FUNCTION DEFINITIONS////
+
+  //3.5 movePaddle() definition
+
+
+  //3.2: drawPaddle() definition
+
+
+  //4.2 drawBall() definition
+
+
+  //4.3 moveBall() definition
+
+
+  //5.3 drawBricks() definition
+
+
+  //5.4 brickCollisionDetection() definition
+
+
+  //6.1 drawScore() definition
+
+
+  //6.2 drawLives() defintion
+
+
+
+
+
+  //update() function definition, called every frame, 60 times per second
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //3.2 drawPaddle(); call
+
+    //4.2 drawBall() call
+
+    //5.3 drawBricks() call
+
+    requestAnimationFrame(update);
+  }
+  ////END FUNCTION DEFINITIONS////
+
+
+  update();
+</code></pre>
+						</dd>
+						<dt>6. We have built a canvas that we will draw on to create the game!</dt>
+						<dd>
+              Make sure you save before moving on.
+						</dd>
+
+					</dl>
+				</div>
+			</div>
+
+      <div class="card card-body" id="step3">
+        <div class="stepLine">
+          <p class="alignleft h5">3. Making the Paddle</p>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(3)" >Mark Complete</button>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Expand</button>
+          <p class="alignright h5">(<span class="time" id="time3">15</span> Minutes)</p>
+        </div>
+        <div class="collapse" id="multiCollapseExample3">
+          <dl>
+            <dt>1. Paddle variables</dt>
+            <dd>
+              <ul>
+                <li>We will need to define some variables, like posistion and size of the paddle</li>
+                <li>Then, we will add <b>Event Listeners</b> to listen for keyboard input and modify the posistion of the paddle based on the input</li>
+              </ul>
+            </dd>
+            <dd>First, lets define the size and posistion of the paddle</dd>
+            <dd>Add this code to section 3.1: paddle variable declarations</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">var paddleHeight = 10;
+var paddleWidth = 120;
+var paddleX = (canvas.width-paddleWidth)/2;</code></pre>
+            <dt>2. Drawing the paddle</dt>
+            <dd> Now that we have defined where the paddle is and how big it should be, we will draw it on the canvas</dd>
+            <dd>First, we will define a function that draws the paddle based on its size and x position</dd>
+            <dd>Add this function definition under 3.2: drawPaddle() definition</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function drawPaddle() {
+  ctx.beginPath();
+  ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+
+  //3.5 movePaddle(); call
+
+}</code></pre>
+          <dt>3. Calling drawPaddle every frame</dt>
+          <dd>So far, we have only defined the function for drawing the paddle, but we haven't told the computer to execute it</dd>
+          <dd>By adding a function call inside of update, we can tell the computer to draw it each frame</dd>
+          <dd>Add this function call inside of update() near the bottom of the code, labeled 3.2 drawPaddle(); call</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">drawPaddle();</code></pre>
+          <dd>After hitting save and run, you should see a small blue rectange at the bottom of your canvas</dd>
+
+          <dt>4. Event Listeners</dt>
+          <dd>Now, we have a static paddle. We will now add event listeners to take keyboard input and after make it move!</dd>
+          <dd>First, lets create a controller object to hold the state of the keys. we only need to move the padde left or right, so we will have a true/false variable for leftkey pressed and right key presssed.</dd>
+          <dd>Add this code in the event listener section, 3.4.1 controller object declaration
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">var controller = {
+  rightPressed: false,
+  leftPressed: false,
+};</code></pre>
+          <dd>Now, just below, add <b>Event Listeners</b> to the document under 3.4.2 Adding keydown and key up listeners</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);</code></pre>
+          <dd>Now, whenever a key is pressed, "keyUpHandler()" will be called, and whenever a key is released, "keyDownHandler()" will be called</dd>
+          <dd>Let's define these functions so they modify our controller objected based on what key is pressed, under 3.4.3 keyUp/DownHandler() definitions</dd>
+          <dd>The keyDownHandler() is finished for you, but you will need to finish the key up handler. Use the key down handler as refrence</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function keyDownHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        controller.rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        controller.leftPressed = true;
+    }
+}
+
+function keyUpHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        //fill in here
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        //fill in here
+    }
+}</code></pre>
+        <dd><i>Hint: When a key is released, is it still being pressed?</i></dd>
+        <dt>5. Moving the paddle</dt>
+        <dd>Now, we have what arrow key is pressed when stored inside of our controller object</dd>
+        <dd>We can create a function, movePaddle(), that moves the paddle based on which key is pressed. Add this under 3.5 movePaddle() definition.</dd>
+        <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function movePaddle(){
+    if(controller.rightPressed && paddleX < canvas.width-paddleWidth) {
+    paddleX += 7;
+  }
+  else if(controller.leftPressed && paddleX > 0) {
+    paddleX -= 7;
+  }
+}</code></pre>
+        <dd><i>Now, you can change the speed of the paddle. Right now, it is set to 7 pixels per frame. After adding the call below, try different speeds</i></dd>
+        <dd>Let's put a call for this function inside of drawPaddle(), so that the paddle can be moved every frame</dd>
+        <dd>Add a call inside of draw paddle, under the comment labeled 3.5 movePaddle(); call</dd>
+        <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript"> //3.5 movePaddle() call
+  movePaddle();</code></pre>
+        <dd>Test out your paddle and make sure it moves before starting section 4!</dd>
+        </div>
+      </div>
+
+
+
+      <div class="card card-body" id="step4">
+        <div class="stepLine">
+          <p class="alignleft h5">4. Making the ball</p>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(4)" >Mark Complete</button>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Expand</button>
+          <p class="alignright h5">(<span class="time" id="time4">15</span> Minutes)</p>
+        </div>
+        <div class="collapse" id="multiCollapseExample4">
+          <dl>
+            <dt>1. Ball variables</dt>
+            <dd>
+              <ul>
+                <li>Just like we did for the paddle, we will define some variables for the ball</li>
+                <li>Then, we will create a function for drawing the ball, and lastly moving the ball</li>
+                <li>We won't need event listeners as the user doesn't directly control the ball</li>
+              </ul>
+            </dd>
+            <dd>Add these variable to the variable section of your code under 4.1 ball variable declarations</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript"> //Size of ball
+var ballRadius = 10;
+
+//Ball posistion
+var x = canvas.width/2;
+var y = canvas.height-30;
+
+//Ball speed
+var dx = 5;
+var dy = -5;</code></pre>
+
+            <dt>2. Drawing the ball</dt>
+            <dd>Now we can create a function for drawing the ball using the variables we just defined</dd>
+            <dd>Add this under 4.2, drawBall() definition</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript"> function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+
+  //4.4 moveBall(); call
+}</code></pre>
+          <dd>Let's add a call for drawBall() inside of the update() function, so that it is called every frame</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">  //4.2 drawBall(); call
+  drawBall();</code></pre>
+          <dd>Now, when you save and run, you should see a ball above your paddle</dd>
+
+          <dt>3. Making the ball move</dt>
+          <dd>There is more possibilities we need to cover for moving the ball</dd>
+          <ul>
+            <li>1. The ball hits the wall -> make it bounce back the other way</li>
+            <li>2. The ball hits the wall -> bounce back down</li>
+            <li>3. The ball hits paddle -> bounce back up</li>
+            <li>4. The ball hits the ground
+              <li>4.1 Player has lives left -> reset the game and start again</li>
+              <li>4.2 No lives left -> end the game and alert player</li>
+          </ul>
+          <dd>This moveBall() function covers all these possibilities</dd>
+          <dd>Add the definition under 4.3 moveBall(); definition</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">
+function moveBall() {
+  //move the vall by its speed
+  x += dx;
+  y += dy;
+  //ball hits wall
+  if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+    dx = -dx;
+  }
+  //ball hits top
+  if(y + dy < ballRadius) {
+    dy = -dy;
+  }
+  //ball hits paddle
+  else if(y + dy > canvas.height-ballRadius) {
+    if(x > paddleX && x < paddleX + paddleWidth) {
+      dy = -dy;
+    }
+    else { //no lives left
+      lives--;
+      if(!lives) {
+        alert("GAME OVER");
+        document.location.reload();
+      }
+      else { //lives left, resetart
+        x = canvas.width/2;
+        y = canvas.height-30;
+        dx = 5;
+        dy = -5;
+        paddleX = (canvas.width-paddleWidth)/2;
+      }
+    }
+  }
+}</code></pre>
+          <dd>Lastly, we need to add a call to moveBall() inside of drawBall() so that it's called each frame</dd>
+          <dd>Add this code inside of drawBall(), just under the moveBall() call</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">  //4.3 moveBall(); call
+  moveBall();</code></pre>
+          <dd>Now, you should be able to see the ball moving, and control your paddle to keep it up. In the next section, we will add bricks and score!</dd>
+        </div>
+      </div>
+
+
+
+      <div class="card card-body" id="step5">
+        <div class="stepLine">
+          <p class="alignleft h5">5. Adding Bricks</p>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(5)" >Mark Complete</button>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample5" aria-expanded="false" aria-controls="multiCollapseExample5">Expand</button>
+          <p class="alignright h5">(<span class="time" id="time5">15</span> Minutes)</p>
+        </div>
+        <div class="collapse" id="multiCollapseExample5">
+          <dl>
+            <dt>1. Brick variables</dt>
+            <dd>
+              <ul>
+                <li>Once again, we will first define some variables</li>
+                <li>Then, we will create a function for drawing the bricks</li>
+                <li>Lastly, we will add a ballHitBrick() function to handle what happens when the ball hits a brick</li>
+              </ul>
+            </dd>
+            <dd>Add these variable to the variable section of your code under 5.1 Brick variable declarations</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript"> //5.1 Brick variables
+var brickRowCount = 9;
+var brickColumnCount = 3;
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+var bricks = [];</code></pre>
+            <dt>2. Declaring brick objects</dt>
+            <dd>We will store the brick objects inside of an 2d-array</dd>
+            <dd>Add this under "5.2 brick creation" to initialize our array of bricks</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript"> for(var c=0; c < brickColumnCount; c++) {
+  bricks[c] = [];
+  for(var r=0; r < brickRowCount; r++) {
+    bricks[c][r] = { x: 0, y: 0, status: 1 };
+  }
+}</code></pre>
+          <dt>3. Drawing the Bricks</dd>
+            <dd>Now we will define a function to draw our brick on the canvas.</dd>
+            <dd>Add this function under 5.3, drawBricks() definition</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">  function drawBricks() {
+  for(var c=0; c < brickColumnCount; c++) {
+    for(var r=0; r < brickRowCount; r++) {
+      if(bricks[c][r].status == 1) {
+        var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;
+        var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+  }
+
+  //5.4 brickCollsionDetection(); call
+}
+</code></pre>
+          <dd>Add a call for drawBricks() inside of update(), just under //5.3 drawBricks call</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">drawBricks();</code></pre>
+          <dd>When you save and run, their should now be bricks on your canvas!</dd>
+
+          <dt>4. Making bricks break</dt>
+          <dd>Now, we need to check if the ball overalps with each brick</dd>
+          <dd>If we find the ball is touchingg the brick, we will change the status of the brick to 0, meaning it wont be drawn anymore</dd>
+          <dd>We will also increment the score upon a brick being hit</dd>
+          <dd>Add the definition under 5.4 brickCollisionDetection()</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function brickCollisionDetection() {
+  for(var c=0; c < brickColumnCount; c++) {
+    for(var r=0; r < brickRowCount; r++) {
+      var b = bricks[c][r];
+      if(b.status == 1) {
+        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+          dy = -dy;
+          b.status = 0;
+          score++;
+          if(score == brickRowCount*brickColumnCount) {
+            alert("YOU WIN, CONGRATS!");
+            document.location.reload();
+          }
+        }
+      }
+    }
+  }
+}}</code></pre>
+          <dd>Lastly, we need to add a call to brickCollisionDetection() inside of drawBricks() so that it's called each frame</dd>
+          <dd>Add the call for brickCollisionDetection inside of drawBricks(), 5.4 brickCollsionDetection(); call</dd>
+          <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">  brickCollisionDetection();</code></pre>
+          <dd>Now, test it out and make sure the bricks break!</dd>
+        </div>
+        </dl>
+      </div>
+
+      <div class="card card-body" id="step6">
+        <div class="stepLine">
+          <p class="alignleft h5">6. Drawing score and lives</p>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(6)" >Mark Complete</button>
+          <button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample6" aria-expanded="false" aria-controls="multiCollapseExample6">Expand</button>
+          <p class="alignright h5">(<span class="time" id="time6">15</span> Minutes)</p>
+        </div>
+        <div class="collapse" id="multiCollapseExample6">
+          <dl>
+            <dt>1. Drawing score</dt>
+            <dd>We already are keeping track of score, we just need a function to draw it</dd>
+            <dd>Add draw score to the function definition section of your code, labelled 6.1 drawScore() definition</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+}</code></pre>
+            <dd><b>Add a call inside of update() for draw score!</b></dd>
+            <dt>2. Drawing Lives</dt>
+            <dd>We already are tracking lives, we jsut need to draw it</dd>
+            <dd>Add the defition under 6.2 drawLives() defintion</dd>
+            <pre class="command-line" data-user="CodeNinja" data-host="CodePen"><code class="language-javascript">function drawLives() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+}</code></pre>
+            <dd><b>Add a call inside of update() for draw score!</b></dd>
+          <dd>Now, test it out, you should see score and lives displayed. If so, you have built the game!</dd>
+        </div>
+      </div>
+
+
+			<div class="card card-body" id="step7">
+				<div class="stepLine">
+					<p class="alignleft h5">7. Lets try it out!</p>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" onclick="updateProgressBar(7)" >Mark Complete</button>
+					<button class="btn btn-primary btn-sm alignbtn" type="button" data-toggle="collapse" data-target="#multiCollapseExample7" aria-expanded="false" aria-controls="multiCollapseExample7">Expand</button>
+					<p class="alignright h5">(<span class="time" id="time7">15</span> Minutes)</p>
+				</div>
+				<div class="collapse" id="multiCollapseExample7">
+					<dl>
+						<dt>1. Try out the game</dt>
+						<dd>
+              <ul>
+  							<li>Take a break from all the hard work, and try out the game</li>
+                <li>As you play, see if you can think of ways the game can be better</li>
+                <li>Or, try thinking of problems with the game, and what can be done to make it better</li>
+              </ul>
+              <div class="form-group">
+                <label for="notes"><i>Aim for atleast 5 ideas...</i><b>Get Creative!</b></label>
+                <textarea class="form-control rounded-0" id="notes" rows="10"></textarea>
+              </div>
+						</dd>
+						<dt>2. Brain Storm</dt>
+						<dd>
+              Share your ideas from the last step with your Sensei!</br>
+              <i>-Next, we will be implementing these mods into the game</i>
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+		</main><!-- /.container -->
+		<div id="bottom_nav">
+			<div class="row">
+				<div class="col-10">
+				</div>
+				<div class="col-2" >
+				    <div class="row">
+				        <div class="col-2">
+
+				        </div>
+				        <div class="col-10">
+        					<div class="card">
+        					  <div class="card-body">
+        					  	<p class="h4 text-center">Helper Icons</p>
+        					  	<hr>
+        					  	<div class="row">
+        					  	    <div class="col-4">
+        					  	        <img  src="../resources/img/octicons/alert.svg" alt="Octicon alert icon" style="padding-right:15px" height="30px">
+        					  	    </div>
+        					  	    <div class="col-8">Common Errors</div>
+        					  	</div>
+        					  	<div class="row">
+        					  	    <div class="col-4">
+        					  	        <img  src="../resources/img/octicons/info.svg" alt="Octicon info icon" style="padding-right:15px" height="30px">
+        					  	    </div>
+        					  	    <div class="col-8">More Information</div>
+        					  	</div>
+        					  </div>
+        					</div>
+        					<button class="btn btn-primary btn-block alignright expandAll" type="button" >Expand All</button>
+        					<button class="btn btn-primary btn-block alignright collapseAll" type="button" >Collapse All</button>
+        				</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
